@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using NuGet.Common;
 using System.ComponentModel;
+using Token = adam_and_eve_api.models.Token;
 
 namespace adam_and_eve_api.Controllers
 {
