@@ -13,7 +13,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.WebHost.UseKestrel(so =>
 {
 });
-builder.WebHost.UseUrls("https://ns51.ruweb.net/");
 
 string connection = "Server=(localdb)\\mssqllocaldb;Database=applicationdb;Trusted_Connection=True;";
 
