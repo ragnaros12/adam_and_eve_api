@@ -10,9 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.WebHost.UseKestrel(so =>
-{
-});
+builder.WebHost.UseKestrel();
 
 string connection = "Server=(localdb)\\mssqllocaldb;Database=applicationdb;Trusted_Connection=True;";
 
@@ -26,10 +24,10 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 var app = builder.Build();
 
 
-
-app.UseHttpsRedirection();
-
-
+app.UseForwardedHeaders(new ForwardedHeadersOptions()
+{
+	ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
+});
 app.UseAuthorization();
 app.UseAuthentication();
 
